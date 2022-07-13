@@ -8,9 +8,10 @@ const cookie = require('cookie-parser');
 const connectdb = require('./server/database/connection');
 const RedisStore = require('connect-redis')(session);
 const Redis = require('ioredis');
-  
+ 
 const app = express();
-process.env.config();
+require('dotenv').config();
+
 const PORT =  process.env.PORT || 3000;
 //log requests
 app.use(morgan('tiny'));
