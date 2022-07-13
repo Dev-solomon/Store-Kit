@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shopping-Cart</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: orangered">
+        <div class="row bg-warning py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="#">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="#">Help</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="#">Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark pl-2" href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1"><i class="fas fa-shopping-cart text-white"></i></span><i class="text-warning"> Store</i> <i class="text-white">kit</i> </h1>
+                </a>
+            </div>
+            <div class="col-lg-6 col-6 text-left">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <h6 class="m-0 text-white">Shop With Us <%=cuser%>!</h6>   <span class="text-info">CHECKOUT</span>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+ 
+
+
+
+
+   <div class="container py-5">
+        <div class="row text-center text-white mb-5">
+            <div class="col-lg-7 mx-auto">
+                <i class="fa-brands fa-opencart fa-5x" style="color: orangered;"></i>
+                <h1 class="display-4 text-warning"> SHOPPING-CART LIST</h1> 
+               
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <!-- List group-->
+                <ul class="list-group shadow">
+                    <!-- list group item-->
+                    <%for(var i = 0; i < img.length; i++) {%>
+                    <li class="list-group-item">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                            <div class="media-body order-2 order-lg-1">
+                                <h5 class="mt-0 font-weight-bold mb-2"> <%= img[i].product%></h5>
+                                <p class="font-italic text-muted mb-0 small"><%= img[i].description%></p>
+                                <div class="d-flex align-items-center justify-content-between mt-1">
+                                    <h6 class="font-weight-bold my-2 text-success">$<%= img[i].price%></h6>
+                                </div>
+                            </div><img src="./uploads/<%= img[i].img.data%>" alt="Generic placeholder image" width="300" height="150" class="ml-lg-5 order-1 order-lg-2">
+                        </div> <!-- End -->
+                         <a class=" btn  border-shadow-2 update bg-info" href="/api/cart?id=<%= img[i]._id%>">
+                                    <span class="text-gradient  text-white ">Purchase <i class="fas fa-basket-shopping"></i></span>
+                                </a>
+                    </li> <!-- End -->
+                    <%}%>
+                    <!-- list group item-->
+                    
+                    
+                    <!-- list group item -->
+                    
+                </ul> <!-- End -->
+            </div>
+        </div>
+    </div>
+       
+    <%- include('../includes/footer')%>
+
+    <!-- JavaScript Libraries -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script> -->
+
+    <!-- Contact Javascript File -->
+    <!-- <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script> -->
+
+    <!-- Template Javascript -->
+    <!-- <script src="js/main.js"></script> -->
+</body>
+
+</html>

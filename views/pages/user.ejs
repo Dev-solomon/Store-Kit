@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>User-Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body> 
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-warning text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0 ">WELCOME <%=cuser%>!</h6>
+                    <span class="text-info"></span>
+                     
+                </a>
+               
+            
+            </div>
+           
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0 display-5 font-weight-semi-bold"b style="color: orangered;"><span class="font-weight-bold border px-3 mr-1"><i class="fas fa-shopping-cart text-warning"></i></span> Storekit </h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="/" class="nav-item nav-link ">FAQS</a>
+                            <a href="/shop" class="nav-item nav-link">Home</a>
+                            
+                        </div>
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="login" class="nav-item nav-link">Password-Reset</a>
+                            <a href="/logout" class="nav-item nav-link">Logout</a>
+                        </div>
+                    </div>
+                    
+                </nav> 
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+    <div class="container-fluid text-center p-4" style="background-color: orangered; height: 70px;">
+        <span class="text-white">SELL YOUR PRODUCTS HERE</span>
+    </div>
+
+    <!-- form for user  -->
+
+    <div class="container-fluid">
+        <form action="/api/userproduct" method="post" enctype="multipart/form-data"> 
+            <div class="form-group">
+                <!-- username input -->
+                    <label for="exampleFormControlTextarea3" >ProductName</label>
+                    <input class="form-control border-info" name =product rows="1">
+                    <!-- email input -->
+                    <label for="exampleFormControlTextarea3">Description</label>
+                     <input name=description class="col-12 border-info rounded" rows="10"> 
+                    <!-- gender -->
+                    <label for="exampleFormControlTextarea3" >Select Photo</label>
+                    <input class="form-control border-info p-2" name = photo rows="1" type="file">
+                    <div class="d-flex justify-content-around  p-4">
+                        
+                      
+                       <div><label for="exampleFormControlTextarea3" class="r-0">Price</label></div> 
+                      <div><input class="form-control w-4 border-info" name = price rows="1"></div>  
+        <script src="../assets/index.js"></script>
+        
+          
+                    </div>
+                   
+                    
+                   
+                    <div class="form-group text-center bg-info">
+                        <button type="submit" class="btn  text-white  text-center" id="add-user">Save</button>
+                    </div>
+
+                   
+                      
+                  </div>
+            
+        </form>
+
+
+
+        <div class="container-fluid">
+            <p class="text-success" style="font-size: 20px;">VIEW ALL YOUR PRODUCTS LISTS <i class="fas fa-clipboard-list "></i></p>
+        </div>
+        
+        <div class=" container-fluid">
+           
+        
+            <%for(var i = 0; i < img.length; i++) {%>
+                
+                <div class="row">
+                    <div class="col-lg-12 mx-auto">
+                        <!-- List group-->
+                        <ul class="list-group shadow">
+                            <!-- list group item-->
+                            <li class="list-group-item">
+                                <!-- Custom content-->
+                                <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                    <div class="media-body order-2 order-lg-1">
+                                        <h5 class="mt-0 font-weight-bold mb-2"><%= img[i].product%></h5>
+                                        <p class="font-italic text-muted mb-0 small"><%= img[i].description%></p>
+                                        <div class="d-flex align-items-center justify-content-between mt-1">
+                                            <h6 class="font-weight-bold my-2">$<%= img[i].price%></h6>
+                                            <ul class="list-inline small">
+                                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div><img src="./uploads/<%= img[i].img.data%>" alt="Generic placeholder image" width="200" height="150" class="ml-lg-5 order-1 order-lg-2">
+                                </div> <!-- End -->
+                                <a class=" btn  border-shadow-2 update bg-danger" href="/api/delete?id=<%= img[i]._id%>">
+                                    <span class="text-gradient  text-white "><i class="fas fa-trash-can"></i></span>
+                                </a>
+                               
+                            </li> <!-- End -->
+                           
+                             
+                             
+                        </ul>
+                       
+                    </div>
+                   
+                        
+                    </div>
+                    
+                
+                    <%}%>
+             
+        
+         
+        </div>
+        
+    
+    </div>
+    
+
+
+     
+ <%-include('../includes/footer')%>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

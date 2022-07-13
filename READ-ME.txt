@@ -1,0 +1,18 @@
+This is a project on Nodejs and its a simple ecommerce site built with an api 
+
+Technologies used are:
+html,
+css,
+javascript,
+bootstrap and fully responsive on all web browsers,
+nodejs,
+mongodb,
+express javascript
+
+To launch this project simple install the required dependencies and npm start
+
+  
+
+ 
+
+   
