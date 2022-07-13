@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node server.js"
+    "start": "node server.js"
   },
   "author": "solomon ntia",
   "license": "ISC",
