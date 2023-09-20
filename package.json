@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "npm run build"
+    "start": "node server.js",
+    "build": "npm run build",
+    "dev": "nodemon server.js"
   },
   "author": "solomon ntia",
   "license": "ISC",
