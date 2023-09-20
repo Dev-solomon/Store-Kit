@@ -1,4 +1,4 @@
-http://store-kit1.herokuapp.com
+https://storekit.onrender.com
 
 # Store-Kit
 mini ecommerce site made using nodejs
