@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoString = "mongodb+srv://solomon:SolomonNtia7@storekit.ary8d.mongodb.net/test"
+const mongoString = "mongodb+srv://solomon:9nIVBPqRcURxMmQI@storekit.ary8d.mongodb.net/"
 
 mongoose.connect(mongoString, {useNewUrlParser: true})
 

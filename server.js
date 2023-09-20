@@ -6,13 +6,13 @@ const path = require('path');
 const session = require('express-session');
 const cookie = require('cookie-parser');
 const connectdb = require('./server/database/connection');
-const RedisStore = require('connect-redis')(session);
-const Redis = require('ioredis');
+// const RedisStore = require('connect-redis')(session);
+// const Redis = require('ioredis');
  
 const app = express();
 require('dotenv').config();
 
-const PORT =  process.env.PORT || 3000;
+const PORT =  process.env.PORT || 8000;
 //log requests
 app.use(morgan('tiny'));
 //set engine name
@@ -35,10 +35,10 @@ app.use('/js', express.static(path.resolve(__dirname, 'node_modules/jquery/dist'
 
 
 
-const redisClient = new Redis();
+// const redisClient = new Redis();
  //Configure session middleware
 app.use(session({
-    store: new RedisStore({ client: redisClient }),
+    // store: new RedisStore({ client: redisClient }),
     secret: 'mynewsession',
     resave: false,
     saveUninitialized: false,

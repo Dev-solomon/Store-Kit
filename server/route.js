@@ -144,7 +144,7 @@ route.get('/logout',function(req,res){
 //     res.render('test');
 // })
 
-
+         
 
  // process Api routes
  route.get('/api/cart',controller.purchase);
